@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(2, 20, 65);
+}
+
+.maxconter {
+    max-width: 576px;
+}
+
+.bgheadertext {
+    background-color: rgb(67, 59, 156);
+}
+
+.font {
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.fonts {
+    font-size: 18px;
+    font-family: cursive;
+}
+
+.coantt {
+    border: 1px solid white;
+}
