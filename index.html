@@ -30,7 +30,7 @@
               <input
                 type="text"
                 class="form-control bg-secondary border-0"
-                id="categorytitle"
+                id="category-title"
               />
             </div>
 
@@ -41,7 +41,7 @@
               <input
                 type="text"
                 class="form-control bg-secondary border-0 py-4"
-                id="categorydescription"
+                id="category-description"
               />
             </div>
 
@@ -50,14 +50,18 @@
                 <button type="button" class="btn btn-secondary col-5">
                   Cancel
                 </button>
-                <button type="button" id="add-new-category" class="btn btn-outline-secondary col-5">
+                <button
+                  type="button"
+                  id="add-new-category"
+                  class="btn btn-outline-secondary col-5"
+                >
                   Add new category
                 </button>
               </div>
             </div>
           </form>
         </div>
-<hr class="text-white">
+        <hr class="text-white" />
         <div class="mt-5">
           <h2 class="font text-primary">Add new product</h2>
           <form class="row g-3">
@@ -90,14 +94,10 @@
                 >Category</label
               >
               <select
+                id="product-category"
                 class="form-select form-select-lg mb-3 bg-transparent text-secondary"
                 aria-label=".form-select-lg example"
-              >
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+              ></select>
             </div>
 
             <div class="col-12 mt-4">
@@ -107,7 +107,7 @@
             </div>
           </form>
         </div>
-        <hr class="text-white">
+        <hr class="text-white" />
         <div class="mt-4 row">
           <h2 class="font text-primary mb-4">product list</h2>
           <span class="text-white col-4 fonts">react</span>
@@ -127,7 +127,7 @@
         </p>
       </div>
     </section>
-<script src="js/app.js" type="modules"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
@@ -143,5 +143,6 @@
       integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/app.js" type="module"></script>
   </body>
 </html>
