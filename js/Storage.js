@@ -34,12 +34,6 @@ const products = [
 ];
 
 export default class Storage {
-  static getAllCategories() {
-    const savedcategories = JSON.parse(localStorage.getItem("category")) || [];
-    return savedcategories.sort((a, b) => {
-      return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
-    });
-  }
   static savecategory(tosave) {
     const savedcategoris = Storage.getAllCategories();
     const existed = savedcategoris.find((e) => {
@@ -57,14 +51,15 @@ export default class Storage {
     }
     localStorage.setItem("category", JSON.stringify(savedcategoris));
   }
- 
- static getAllproducts() {
-    const savedcategories = JSON.parse(localStorage.getItem("products")) || [];
+
+  static getAllCategories() {
+    const savedcategories = JSON.parse(localStorage.getItem("category")) || [];
     return savedcategories.sort((a, b) => {
       return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
     });
   }
- static saveproducts(tosaveproduct) {
+
+  static saveproducts(tosaveproduct) {
     const savedproduct = Storage.getAllproducts();
     const existed = savedproduct.find((e) => {
       e.id === tosaveproduct.id;
@@ -81,5 +76,11 @@ export default class Storage {
       savedproduct.push(tosave);
     }
     localStorage.setItem("products", JSON.stringify(savedproduct));
+  }
+  static getAllproducts() {
+    const savedcategories = JSON.parse(localStorage.getItem("products")) || [];
+    return savedcategories.sort((a, b) => {
+      return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
+    });
   }
 }
