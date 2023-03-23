@@ -6,28 +6,24 @@ const addNewCetgoryBtn = document.querySelector("#add-new-category");
 
 class CategoryView {
   constructor() {
-    addNewCetgoryBtn.addEventListener("click", (e) => this.addNewCategory(e));
+    addNewCetgoryBtn.addEventListener("click", this.addNewCategory());
     this.categories = [];
   }
-
-  addNewCategory(e) {
-    e.preventDefault();
+  addNewCategory() {
     const title = categoryTitle.value;
-    const description = categoryDescription.value;
-    if (!title || !description) return;
-    Storage.savecategory({ title, description });
+    const Description = categoryDescription.value;
+    if (!title || !Description) return;
+    Storage.savecategory({ title, Description });
     this.categories = Storage.getAllCategories();
-
     this.createCategoriesList();
-    console.log(Storage.getAllCategories());
   }
   setApp() {
     this.categories = Storage.getAllCategories();
   }
   createCategoriesList() {
-    let result = `<option value="3">Three</option>`;
-    this.categories.forEach((element) => {
-      result += `<option value=${element.id}>${element.title}</option>`;
+    let result = `<option value="0">one</option>`;
+    this.categories.forEach((el) => {
+      result += `<option value="${el.id}">${el.title}</option>`;
     });
     document.getElementById("product-category").innerHTML = result;
   }
