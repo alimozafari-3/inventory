@@ -6,14 +6,15 @@ const addNewCetgoryBtn = document.querySelector("#add-new-category");
 
 class CategoryView {
   constructor() {
-    addNewCetgoryBtn.addEventListener("click", this.addNewCategory());
+    addNewCetgoryBtn.addEventListener("click", (e)=> this.addNewCategory());
     this.categories = [];
   }
   addNewCategory() {
+    alert("add category")
     const title = categoryTitle.value;
-    const Description = categoryDescription.value;
-    if (!title || !Description) return;
-    Storage.savecategory({ title, Description });
+    const description = categoryDescription.value;
+    if (!title || !description) return;
+    Storage.savecategory({ title, description });
     this.categories = Storage.getAllCategories();
     this.createCategoriesList();
   }
