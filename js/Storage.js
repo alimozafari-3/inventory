@@ -37,10 +37,14 @@ export default class Storage {
       existed.quantity = tosaveproduct.quantity;
       existed.category = tosaveproduct.category;
     } else {
-      //new add
-      tosaveproduct.id = new Date().getTime();
-      tosaveproduct.createdAt = new Date().toISOString();
-      savedproduct.push(tosave);
+      const saves = {
+        title: tosaveproduct.title,
+        description: tosaveproduct.description,
+        category:tosaveproduct.category,
+        id: new Date().getTime(),
+        createdAt: new Date().toISOString(),
+      };
+      savedproduct.push(saves);
     }
     localStorage.setItem("products", JSON.stringify(savedproduct));
   }
