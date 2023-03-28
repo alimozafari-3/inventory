@@ -39,7 +39,7 @@ export default class Storage {
     } else {
       const saves = {
         title: tosaveproduct.title,
-        description: tosaveproduct.description,
+        quantity: tosaveproduct.quantity,
         category:tosaveproduct.category,
         id: new Date().getTime(),
         createdAt: new Date().toISOString(),
