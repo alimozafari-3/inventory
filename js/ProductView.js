@@ -1,10 +1,12 @@
 import Storage from "./Storage.js";
 const addnewproductbtn = document.getElementById("add-new-product");
 const searchInput = document.getElementById("search-input");
+const selectsort = document.getElementById("sort-product")
 class productView {
   constructor() {
     addnewproductbtn.addEventListener("click", (e) => this.addnewproduct());
     searchInput.addEventListener("input", (e) => this.searchproduct(e));
+    selectsort.addEventListener("change",(e)=>this.sortproducts(e))
     this.products = [];
   }
   addnewproduct() {
@@ -43,8 +45,12 @@ class productView {
   searchproduct(e) {
     let value = e.target.value.trim().toLowerCase();
     const filterproduct = this.products.filter((e) =>e.title.toLowerCase().includes(value));
-    // this.products = filterproduct;
     this.createProductList(filterproduct);
+  }
+  sortproducts(e){
+    const value=e.target.value;
+    
+    this.createProductList(Storage.getAllproducts(value));
   }
 }
 

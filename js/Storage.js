@@ -48,10 +48,16 @@ export default class Storage {
     }
     localStorage.setItem("products", JSON.stringify(savedproduct));
   }
-  static getAllproducts() {
+  static getAllproducts(sort="newest") {
     const savedcategories = JSON.parse(localStorage.getItem("products")) || [];
     return savedcategories.sort((a, b) => {
-      return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
+      if(sort === "newest"){
+        return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
+      }else{
+        if(sort === "oldest"){
+          return new Date(a.createdAt) > new Date(b.createdAt) ? 1 : -1;
+        }
+      }
     });
   }
 }
