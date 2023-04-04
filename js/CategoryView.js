@@ -3,10 +3,12 @@ import Storage from "./Storage.js";
 const categoryTitle = document.querySelector("#category-title");
 const categoryDescription = document.querySelector("#category-description");
 const addNewCetgoryBtn = document.querySelector("#add-new-category");
-
+const toggleaddcategorybtn=document.getElementById("toggle-add-category")
+const categorywrapper=document.getElementById("category-wrapper")
 class CategoryView {
   constructor() {
     addNewCetgoryBtn.addEventListener("click", (e)=> this.addNewCategory());
+    toggleaddcategorybtn.addEventListener("click",(e)=>this.toggleaddcategory(e))
     this.categories = [];
   }
   addNewCategory() {
@@ -27,6 +29,10 @@ class CategoryView {
       result += `<option value="${el.id}">${el.title}</option>`;
     });
     document.getElementById("product-category").innerHTML = result;
+  }
+  toggleaddcategory(e){
+    categorywrapper.classList.toggle("hidden")
+   
   }
 }
 export default new CategoryView();

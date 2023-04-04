@@ -1,12 +1,12 @@
 import Storage from "./Storage.js";
 const addnewproductbtn = document.getElementById("add-new-product");
 const searchInput = document.getElementById("search-input");
-const selectsort = document.getElementById("sort-product")
+const selectsort = document.getElementById("sort-product");
 class productView {
   constructor() {
     addnewproductbtn.addEventListener("click", (e) => this.addnewproduct());
     searchInput.addEventListener("input", (e) => this.searchproduct(e));
-    selectsort.addEventListener("change",(e)=>this.sortproducts(e))
+    selectsort.addEventListener("change", (e) => this.sortproducts(e));
     this.products = [];
   }
   addnewproduct() {
@@ -26,7 +26,6 @@ class productView {
     product.forEach((el) => {
       let categoryid = Storage.getAllCategories().find((e) => {return e.id == el.category;});
       result += `
-      
       <div class="d-flex justify-content-between mt-3">
       <span class="text-white  fonts">${el.title}</span>
         <span class="text-white fonts">${new Date().toLocaleDateString(
@@ -44,12 +43,13 @@ class productView {
   }
   searchproduct(e) {
     let value = e.target.value.trim().toLowerCase();
-    const filterproduct = this.products.filter((e) =>e.title.toLowerCase().includes(value));
+    const filterproduct = this.products.filter((e) =>
+      e.title.toLowerCase().includes(value)
+    );
     this.createProductList(filterproduct);
   }
-  sortproducts(e){
-    const value=e.target.value;
-    
+  sortproducts(e) {
+    const value = e.target.value;
     this.createProductList(Storage.getAllproducts(value));
   }
 }
