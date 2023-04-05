@@ -24,7 +24,9 @@ class productView {
   createProductList(product) {
     let result = ``;
     product.forEach((el) => {
-      let categoryid = Storage.getAllCategories().find((e) => {return e.id == el.category;});
+      let categoryid = Storage.getAllCategories().find((e) => {
+        return e.id == el.category;
+      });
       result += `
       <div class="d-flex justify-content-between mt-3">
       <span class="text-white  fonts">${el.title}</span>
@@ -35,11 +37,17 @@ class productView {
           categoryid.title
         }</div>
         <div class="text-white fonts">${el.quantity}</div>
-        <button type="button" class="btn btn-outline-danger">Delete</button>
+        <button type="button" data-id=${
+          el.id
+        } class="delete-product btn btn-outline-danger">Delete</button>
         </div>
       `;
     });
     document.getElementById("product-list").innerHTML = result;
+    const deleteproduct = [...document.querySelectorAll(".delete-product")];
+    deleteproduct.forEach((item) => {
+      item.addEventListener("click", (e) => this.deleteproduct(e));
+    });
   }
   searchproduct(e) {
     let value = e.target.value.trim().toLowerCase();
@@ -51,6 +59,11 @@ class productView {
   sortproducts(e) {
     const value = e.target.value;
     this.createProductList(Storage.getAllproducts(value));
+  }
+  deleteproduct(e) {
+    Storage.deleteproduct(e.target.dataset.id);
+    this.products = Storage.getAllproducts();
+    this.createProductList(Storage.getAllproducts());
   }
 }
 
