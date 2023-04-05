@@ -47,7 +47,11 @@
 
             <div class="col-12 mt-4">
               <div class="row d-flex justify-content-around">
-                <button type="button" class="btn btn-secondary col-5">
+                <button
+                  type="button"
+                  id="canceladdcategory"
+                  class="btn btn-secondary col-5"
+                >
                   Cancel
                 </button>
                 <button
@@ -61,7 +65,13 @@
             </div>
           </form>
         </div>
-        <button type="button" class="btn text-white  btn-secondary mt-4" id="toggle-add-category">addnewcategory</button>
+        <button
+          type="button"
+          class="btn text-white btn-secondary mt-4"
+          id="toggle-add-category"
+        >
+          addnewcategory
+        </button>
         <hr class="text-white" />
         <div class="mt-5">
           <h2 class="font text-primary">Add new product</h2>
@@ -114,7 +124,7 @@
         </div>
         <hr class="text-white" />
         <h2 class="font text-primary mb-4">product list</h2>
-        <div class=" d-flex justify-content-between">
+        <div class="d-flex justify-content-between">
           <label for="inputcategory" class="form-label text-secondary"
             >search</label
           >
@@ -128,7 +138,11 @@
           <label for="categorydescription" class="form-label text-secondary"
             >sort</label
           >
-          <select id="sort-product" class="form-select-lg  bg-transparent text-secondary" aria-label=".form-select-lg example">
+          <select
+            id="sort-product"
+            class="form-select-lg bg-transparent text-secondary"
+            aria-label=".form-select-lg example"
+          >
             <option value="">selectcategory</option>
             <option value="newest" selected>newest</option>
             <option value="oldes">oldes</option>
