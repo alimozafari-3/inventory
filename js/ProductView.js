@@ -37,17 +37,22 @@ class productView {
           categoryid.title
         }</div>
         <div class="text-white fonts">${el.quantity}</div>
-        <button type="button" data-id=${
-          el.id
-        } class="delete-product btn btn-outline-danger">Delete</button>
+        <button type="button" data-Editeid=${el.id} class="Edite-product btn btn-success">Edite</button>
+        <button type="button" data-deleteid=${el.id} class="delete-product btn btn-outline-danger">Delete</button>
         </div>
       `;
     });
     document.getElementById("product-list").innerHTML = result;
+    //delete
     const deleteproduct = [...document.querySelectorAll(".delete-product")];
     deleteproduct.forEach((item) => {
       item.addEventListener("click", (e) => this.deleteproduct(e));
     });
+//Edite
+const Editeproduct=document.querySelectorAll(".Edite-product")
+Editeproduct.forEach(item=>{
+  item.addEventListener("click",(e)=>this.editeproduct(e))
+})
   }
   searchproduct(e) {
     let value = e.target.value.trim().toLowerCase();
@@ -61,9 +66,14 @@ class productView {
     this.createProductList(Storage.getAllproducts(value));
   }
   deleteproduct(e) {
-    Storage.deleteproduct(e.target.dataset.id);
+    Storage.deleteproduct(e.target.dataset.deleteid);
     this.products = Storage.getAllproducts();
     this.createProductList(Storage.getAllproducts());
+  }
+  editeproduct(e){
+   Storage.editeproduct(e.target.dataset.editeid)
+   this.products = Storage.getAllproducts();
+   this.createProductList(Storage.getAllproducts());
   }
 }
 

@@ -65,4 +65,16 @@ export default class Storage {
     const filterproducts = savedproduct.filter((e) => e.id !== parseInt(id));
     localStorage.setItem("products", JSON.stringify(filterproducts));
   }
+  static editeproduct(id) {
+    const title = document.getElementById("product-title").value;
+    if (title == "") {
+      alert("لطفا تغیرات را داخل product title وارد کنید");
+    } else {
+      const savedproduct = this.getAllproducts();
+      const editeproduct = savedproduct.find((e) => e.id == parseInt(id));
+      editeproduct.title = title;
+      localStorage.setItem("products", JSON.stringify(savedproduct));
+    }
+  }
+  
 }
